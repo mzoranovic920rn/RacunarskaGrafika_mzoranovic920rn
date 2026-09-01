@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1788287916 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\glad.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<glad/glad.h>
+	<windows.h>
+	<dlfcn.h>
+
+1788287916 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\glad\glad.h
+	<windows.h>
+	<stddef.h>
+	<KHR/khrplatform.h>
+	<inttypes.h>
+	<inttypes.h>
+	<inttypes.h>
+	<stdint.h>
+	<stdint.h>
+	<inttypes.h>
+
+1788287916 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\khr\khrplatform.h
+	<sys/cdefs.h>
+	<stdint.h>
+	<inttypes.h>
+	<stdint.h>
+
