@@ -24,3 +24,97 @@
 	<inttypes.h>
 	<stdint.h>
 
+1788292570 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\main.c
+	<stdio.h>
+	<rafgl.h>
+	<main_state.h>
+	<game_constants.h>
+
+1788255971 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\rafgl.h
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<glad/glad.h>
+	<GLFW/glfw3.h>
+	<stb_image.h>
+	<rafgl_keys.h>
+	<math_3d.h>
+	<stb_image.h>
+	<stb_image_write.h>
+
+1788287916 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\glfw\glfw3.h
+	<stddef.h>
+	<stdint.h>
+	<vulkan/vulkan.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl3.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl31.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl32.h>
+	<GLES2/gl2ext.h>
+	<OpenGL/gl3.h>
+	<OpenGL/gl3ext.h>
+	<GL/glcorearb.h>
+	<GL/glext.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+	<OpenGL/gl.h>
+	<GL/gl.h>
+	<GL/glext.h>
+
+1788287916 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1788294043 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\rafgl_keys.h
+	<GLFW/glfw3.h>
+
+1788287916 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\math_3d.h
+	<math.h>
+	<stdio.h>
+
+1788287916 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\stb_image_write.h
+	<stdlib.h>
+	<stdio.h>
+	<stdarg.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<assert.h>
+
+1788293977 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\main_state.h
+	<glad/glad.h>
+	<GLFW/glfw3.h>
+	<rafgl.h>
+
+1788292461 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\game_constants.h
+
+1788361082 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\main_state.c
+	<camera.h>
+	<main_state.h>
+	<glad/glad.h>
+	<math.h>
+	<rafgl.h>
+	<game_constants.h>
+
+1788359537 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\camera.h
+	<math_3d.h>
+	<rafgl.h>
+

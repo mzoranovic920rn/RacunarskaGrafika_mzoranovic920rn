@@ -1,3 +1,4 @@
+#include <camera.h>
 #include <main_state.h>
 #include <glad/glad.h>
 #include <math.h>
@@ -8,10 +9,12 @@
 void main_state_init(GLFWwindow *window, void *args, int width, int height)
 {
     glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
+    camera_init();
 }
 
 void main_state_update(GLFWwindow *window, float delta_time, rafgl_game_data_t *game_data, void *args)
 {
+    camera_update(game_data, delta_time, game_data->raster_width, game_data->raster_height);
 
 }
 
