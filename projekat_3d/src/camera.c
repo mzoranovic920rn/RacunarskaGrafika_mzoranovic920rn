@@ -26,6 +26,8 @@ void camera_update(rafgl_game_data_t *game_data, float delta_time, int raster_wi
     if(game_data->keys_down[RAFGL_KEY_SPACE]) camera_position.y += 1.0f * delta_time;
     if(game_data->keys_down[RAFGL_KEY_LEFT_SHIFT]) camera_position.y -= 1.0f * delta_time;
 
+    camera_position.y = rafgl_clampf(camera_position.y, -0.5f, 3.0f); //ogranicenje za pod, da ne ode na plafon
+
     float aspect = (float)raster_width / raster_height;
 
     projection = m4_perspective(fov, aspect, 0.1f, 100.0f);
@@ -33,5 +35,5 @@ void camera_update(rafgl_game_data_t *game_data, float delta_time, int raster_wi
     view_projection = m4_mul(projection, view);
 
     //dodato radi provere dal trenutno radi
-    printf("Kamera pozicija: x=%.2f y=%.2f z=%.2f\n", camera_position.x, camera_position.y, camera_position.z);
+    //printf("Kamera pozicija: x=%.2f y=%.2f z=%.2f\n", camera_position.x, camera_position.y, camera_position.z);
 }
