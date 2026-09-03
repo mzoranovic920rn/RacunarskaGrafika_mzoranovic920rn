@@ -106,7 +106,7 @@
 
 1788292461 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\game_constants.h
 
-1788460869 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\main_state.c
+1788469567 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\main_state.c
 	<camera.h>
 	<main_state.h>
 	<glad/glad.h>
@@ -123,10 +123,10 @@
 	<camera.h>
 	<stdio.h>
 
-1788461754 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\geometry.c
+1788468867 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\geometry.c
 	"geometry.h"
 	<math.h>
 
-1788461524 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\geometry.h
+1788470024 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\geometry.h
 	<rafgl.h>
 

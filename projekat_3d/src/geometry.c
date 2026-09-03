@@ -163,3 +163,10 @@ void generisi_sprat(void)
         sprat_vertices[base + 33] = r2; sprat_vertices[base + 34] = g2;     sprat_vertices[base + 35] = b2;
     }
 }
+
+GLfloat cestica_vertices[18] =
+{
+    0.0f,  0.05f, 0.0f,   1.0f, 0.85f, 0.4f,
+   -0.04f, -0.03f, 0.0f,  1.0f, 0.85f, 0.4f,
+    0.04f, -0.03f, 0.0f,  1.0f, 0.85f, 0.4f,
+};

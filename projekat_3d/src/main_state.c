@@ -61,6 +61,8 @@ static GLuint zadnji_zid_vao, zadnji_zid_vbo;
 static GLuint postolje_vao, postolje_vbo;
 static GLuint kristal_vao, kristal_vbo;
 static GLuint sprat_vao, sprat_vbo;
+static GLuint uni_pod_sara;
+GLuint cestica_vao, cestica_vbo;
 
 
 static float total_time = 0.0f;
@@ -78,6 +80,8 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
 
     uni_normal = glGetUniformLocation(shader_program_id, "uni_normal");
     uni_light_dir = glGetUniformLocation(shader_program_id, "uni_light_dir");
+
+    uni_pod_sara = glGetUniformLocation(shader_program_id, "uni_pod_sara");
 
     glGenVertexArrays(1, &vao);
     glGenBuffers(1, &vbo);
@@ -197,6 +201,18 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), 3 * sizeof(GLfloat));
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+    //cestice
+    glGenVertexArrays(1, &cestica_vao);
+    glGenBuffers(1, &cestica_vbo);
+    glBindVertexArray(cestica_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, cestica_vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(cestica_vertices), cestica_vertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)0);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(1);
+    glBindVertexArray(0);
 }
 
 void main_state_update(GLFWwindow *window, float delta_time, rafgl_game_data_t *game_data, void *args)
@@ -214,14 +230,14 @@ void main_state_render(GLFWwindow *window, void *args)
 
     glUniform3f(uni_light_dir, -0.5f, -1.0f, -0.3f);
 
-    glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);
+   /* glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);
     glBindVertexArray(vao);
     glUniformMatrix4fv(uni_M, 1, GL_FALSE, model.m);
     glUniformMatrix4fv(uni_VP, 1, GL_FALSE, view_projection.m);
 
     glDrawArrays(GL_TRIANGLES, 0, 6);
 
-    glBindVertexArray(0);
+    glBindVertexArray(0);*/
 
 
     //iscrtavanje
@@ -345,6 +361,51 @@ void main_state_render(GLFWwindow *window, void *args)
     glBindVertexArray(sprat_vao);
     glDrawArrays(GL_TRIANGLES, 0, SPRAT_TEMENA);
     glBindVertexArray(0);
+
+
+    //cestice oko kristala
+    float centar_cestica_x = 0.0f;
+    float centar_cestica_y = 0.6f;
+    float centar_cestica_z = 3.0f;
+    float radijus_baza = 0.7f;
+    float radijus_razbacanost = 0.6f;
+    float visina_razbacanost = 0.35f;
+    float brzina_kruzenja = 1.0f;
+    float amplituda_lebdenja = 0.15f;
+
+    glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);
+    glBindVertexArray(cestica_vao);
+
+
+    for(int i = 0; i < BROJ_CESTICA; i++)
+    {
+        float ugao = i * (2.0f * M_PIf / BROJ_CESTICA) + total_time * brzina_kruzenja;
+        float radijus_cestica = radijus_baza + radijus_razbacanost * sinf(i * 3.0f); //2.4
+        float visina_baza = centar_cestica_y + visina_razbacanost * cosf(i * 2.0f);//1.7
+
+        float cestica_x = centar_cestica_x + radijus_cestica * cosf(ugao);
+        float cestica_z = centar_cestica_z + radijus_cestica * sinf(ugao);
+        float cestica_y = visina_baza + amplituda_lebdenja * sinf(total_time + i);
+
+        mat4_t cestica_model = m4_translation(vec3m(cestica_x, cestica_y, cestica_z));
+
+        glUniformMatrix4fv(uni_M, 1, GL_FALSE, (void*) cestica_model.m);
+        glUniformMatrix4fv(uni_VP, 1, GL_FALSE, (void*) view_projection.m);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+    }
+
+    glBindVertexArray(0);
+
+    //sara na podu
+
+    glUniform1f(uni_pod_sara, 1.0f);
+    glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);
+    glUniformMatrix4fv(uni_M, 1, GL_FALSE, (void*) model.m);
+    glUniformMatrix4fv(uni_VP, 1, GL_FALSE, (void*) view_projection.m);
+    glBindVertexArray(vao);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    glBindVertexArray(0);
+    glUniform1f(uni_pod_sara, 0.0f);
 }
 
 void main_state_cleanup(GLFWwindow *window, void *args)
