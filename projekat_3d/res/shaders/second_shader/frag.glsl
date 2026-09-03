@@ -8,3 +8,5 @@ void main()
 {
 	final_colour = vec4(pass_colour, 1.0f);
 }
+
+/// On je potpuno generican, uzme boju koju dobije i vrati je kao finalnu boju piksela
