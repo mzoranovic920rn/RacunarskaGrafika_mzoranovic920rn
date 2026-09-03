@@ -27,6 +27,13 @@ void camera_update(rafgl_game_data_t *game_data, float delta_time, int raster_wi
     if(game_data->keys_down[RAFGL_KEY_LEFT_SHIFT]) camera_position.y -= 1.0f * delta_time;
 
     camera_position.y = rafgl_clampf(camera_position.y, -0.5f, 3.0f); //ogranicenje za pod, da ne ode na plafon
+    camera_position.x = rafgl_clampf(camera_position.x, -4.5f, 4.5f);
+    camera_position.z = rafgl_clampf(camera_position.z, -4.5f, 4.5f);
+
+//DODAJEM PONOVO OVO ZA KAMERU DA PROBAM
+    camera_target.x = camera_position.x;
+    camera_target.y = camera_position.y;
+    camera_target.z = camera_position.z + 1.0f;
 
     float aspect = (float)raster_width / raster_height;
 
