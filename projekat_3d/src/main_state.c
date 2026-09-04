@@ -52,6 +52,15 @@ static GLfloat zadnji_zid_vertices[] =
     -5, -1, 5,     0.7, 0.7, 0.7,
 };
 
+static GLfloat prednji_zid_vertices[] =
+{
+    -5, -1, -5,     0.7, 0.7, 0.7,
+     5, -1, -5,     0.7, 0.7, 0.7,
+     5,  3, -5,     0.7, 0.7, 0.7,
+     5,  3, -5,     0.7, 0.7, 0.7,
+    -5,  3, -5,     0.7, 0.7, 0.7,
+    -5, -1, -5,     0.7, 0.7, 0.7,
+};
 
 static GLuint vao, vbo, shader_program_id, uni_M, uni_VP;
 static GLuint uni_normal, uni_light_dir;
@@ -63,6 +72,12 @@ static GLuint kristal_vao, kristal_vbo;
 static GLuint sprat_vao, sprat_vbo;
 static GLuint uni_pod_sara;
 GLuint cestica_vao, cestica_vbo;
+GLuint prednji_zid_vao, prednji_zid_vbo;
+
+//za post-procesing
+rafgl_framebuffer_simple_t scena_fbo;
+GLuint kvadrat_vao, kvadrat_vbo;
+GLuint post_shader_program_id, uni_scena_tekstura, uni_jacina_vinjete;
 
 
 static float total_time = 0.0f;
@@ -213,6 +228,49 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
     glEnableVertexAttribArray(1);
     glBindVertexArray(0);
+
+    //poslednji zid
+    glGenVertexArrays(1, &prednji_zid_vao);
+    glGenBuffers(1, &prednji_zid_vbo);
+    glBindVertexArray(prednji_zid_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, prednji_zid_vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(prednji_zid_vertices), prednji_zid_vertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)0);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(1);
+    glBindVertexArray(0);
+
+
+    //post-procesing
+    scena_fbo = rafgl_framebuffer_simple_create(width, height);
+
+    GLfloat kvadrat_vertices[] =
+    {
+        /* pozicija (x,y) */  /* uv (u,v) */
+        -1.0f, -1.0f,          0.0f, 0.0f,
+        1.0f, -1.0f,          1.0f, 0.0f,
+        1.0f,  1.0f,          1.0f, 1.0f,
+
+        1.0f,  1.0f,          1.0f, 1.0f,
+        -1.0f,  1.0f,          0.0f, 1.0f,
+        -1.0f, -1.0f,          0.0f, 0.0f,
+    };
+
+    glGenVertexArrays(1, &kvadrat_vao);
+    glGenBuffers(1, &kvadrat_vbo);
+    glBindVertexArray(kvadrat_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, kvadrat_vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(kvadrat_vertices), kvadrat_vertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (void*)0);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (void*)(2 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(1);
+    glBindVertexArray(0);
+
+    post_shader_program_id = rafgl_program_create_from_name("post_shader");
+    uni_scena_tekstura = glGetUniformLocation(post_shader_program_id, "uni_scena_tekstura");
+    uni_jacina_vinjete = glGetUniformLocation(post_shader_program_id, "uni_jacina_vinjete");
 }
 
 void main_state_update(GLFWwindow *window, float delta_time, rafgl_game_data_t *game_data, void *args)
@@ -227,6 +285,9 @@ void main_state_render(GLFWwindow *window, void *args)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glUseProgram(shader_program_id);
+
+    glBindFramebuffer(GL_FRAMEBUFFER, scena_fbo.fbo_id);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glUniform3f(uni_light_dir, -0.5f, -1.0f, -0.3f);
 
@@ -406,6 +467,32 @@ void main_state_render(GLFWwindow *window, void *args)
     glDrawArrays(GL_TRIANGLES, 0, 6);
     glBindVertexArray(0);
     glUniform1f(uni_pod_sara, 0.0f);
+
+    //crtanje prednji zid
+    glUniform3f(uni_normal, 0.0f, 0.0f, -1.0f);
+    glBindVertexArray(prednji_zid_vao);
+
+    glUniformMatrix4fv(uni_M, 1, GL_FALSE, model.m);
+    glUniformMatrix4fv(uni_VP, 1, GL_FALSE, view_projection.m);
+
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+
+    glBindVertexArray(0);
+
+
+    //post pocesing
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glUseProgram(post_shader_program_id);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, scena_fbo.tex_id);
+    glUniform1i(uni_scena_tekstura, 0);
+    glUniform1f(uni_jacina_vinjete, 1.0f);
+
+    glBindVertexArray(kvadrat_vao);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    glBindVertexArray(0);
 }
 
 void main_state_cleanup(GLFWwindow *window, void *args)
