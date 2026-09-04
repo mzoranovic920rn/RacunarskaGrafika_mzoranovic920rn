@@ -74,11 +74,15 @@ static GLuint uni_pod_sara;
 GLuint cestica_vao, cestica_vbo;
 GLuint prednji_zid_vao, prednji_zid_vbo;
 
-//za post-procesing
+//za post-procesing za vinjetu
 rafgl_framebuffer_simple_t scena_fbo;
 GLuint kvadrat_vao, kvadrat_vbo;
 GLuint post_shader_program_id, uni_scena_tekstura, uni_jacina_vinjete;
 
+
+//za zrnastu strukturu
+rafgl_framebuffer_simple_t fbo_posle_vinjete;
+GLuint zrno_shader_program_id, uni_zrno_scena_tekstura, uni_vreme, uni_jacina_zrna;
 
 static float total_time = 0.0f;
 
@@ -271,6 +275,14 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
     post_shader_program_id = rafgl_program_create_from_name("post_shader");
     uni_scena_tekstura = glGetUniformLocation(post_shader_program_id, "uni_scena_tekstura");
     uni_jacina_vinjete = glGetUniformLocation(post_shader_program_id, "uni_jacina_vinjete");
+
+    //za jos jedan post-processing efekat
+    fbo_posle_vinjete = rafgl_framebuffer_simple_create(width, height);
+
+    zrno_shader_program_id = rafgl_program_create_from_name("zrno_shader");
+    uni_zrno_scena_tekstura = glGetUniformLocation(zrno_shader_program_id, "uni_scena_tekstura");
+    uni_vreme = glGetUniformLocation(zrno_shader_program_id, "uni_vreme");
+    uni_jacina_zrna = glGetUniformLocation(zrno_shader_program_id, "uni_jacina_zrna");
 }
 
 void main_state_update(GLFWwindow *window, float delta_time, rafgl_game_data_t *game_data, void *args)
@@ -480,8 +492,8 @@ void main_state_render(GLFWwindow *window, void *args)
     glBindVertexArray(0);
 
 
-    //post pocesing
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    /* stanica 1: vinjeta, iz scena_fbo u fbo_posle_vinjete */
+    glBindFramebuffer(GL_FRAMEBUFFER, fbo_posle_vinjete.fbo_id);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glUseProgram(post_shader_program_id);
@@ -489,6 +501,21 @@ void main_state_render(GLFWwindow *window, void *args)
     glBindTexture(GL_TEXTURE_2D, scena_fbo.tex_id);
     glUniform1i(uni_scena_tekstura, 0);
     glUniform1f(uni_jacina_vinjete, 1.0f);
+
+    glBindVertexArray(kvadrat_vao);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    glBindVertexArray(0);
+
+    /* stanica 2: filmska zrnavost, iz fbo_posle_vinjete na pravi ekran */
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glUseProgram(zrno_shader_program_id);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, fbo_posle_vinjete.tex_id);
+    glUniform1i(uni_zrno_scena_tekstura, 0);
+    glUniform1f(uni_vreme, total_time);
+    glUniform1f(uni_jacina_zrna, 0.09f);
 
     glBindVertexArray(kvadrat_vao);
     glDrawArrays(GL_TRIANGLES, 0, 6);
