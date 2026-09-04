@@ -73,6 +73,7 @@ static GLuint sprat_vao, sprat_vbo;
 static GLuint uni_pod_sara;
 GLuint cestica_vao, cestica_vbo;
 GLuint prednji_zid_vao, prednji_zid_vbo;
+GLuint uni_zid_sara;
 
 //za post-procesing za vinjetu
 rafgl_framebuffer_simple_t scena_fbo;
@@ -101,6 +102,8 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
     uni_light_dir = glGetUniformLocation(shader_program_id, "uni_light_dir");
 
     uni_pod_sara = glGetUniformLocation(shader_program_id, "uni_pod_sara");
+
+    uni_zid_sara = glGetUniformLocation(shader_program_id, "uni_zid_sara");
 
     glGenVertexArrays(1, &vao);
     glGenBuffers(1, &vbo);
@@ -161,6 +164,8 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     //zadnji zid
+
+
     glGenVertexArrays(1, &zadnji_zid_vao);
     glGenBuffers(1, &zadnji_zid_vbo);
 
@@ -177,6 +182,8 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
 
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+
 
 
         //za postolje
@@ -325,6 +332,7 @@ void main_state_render(GLFWwindow *window, void *args)
     glBindVertexArray(0);
 
     //crtanje desni zid
+
     glUniform3f(uni_normal, 1.0f, 0.0f, 0.0f);
     glBindVertexArray(desni_zid_vao);
 
@@ -336,6 +344,7 @@ void main_state_render(GLFWwindow *window, void *args)
     glBindVertexArray(0);
 
     //crtanje zadnji zid
+    glUniform1f(uni_zid_sara, 1.0f);
     glUniform3f(uni_normal, 0.0f, 0.0f, -1.0f);
     glBindVertexArray(zadnji_zid_vao);
 
@@ -345,6 +354,8 @@ void main_state_render(GLFWwindow *window, void *args)
     glDrawArrays(GL_TRIANGLES, 0, 6);
 
     glBindVertexArray(0);
+
+    glUniform1f(uni_zid_sara, 0.0f);
 
 /*
         glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);
