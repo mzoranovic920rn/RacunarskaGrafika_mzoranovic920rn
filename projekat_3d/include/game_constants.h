@@ -7,4 +7,4 @@
 #define GAME_WINDOW_HEIGHT 720
 #define GAME_FULLSCREEN 0
 
-#endif // GAME_CONSTANTS_H_INCLUDED
+#endif

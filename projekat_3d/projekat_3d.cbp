@@ -30,7 +30,46 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add directory="include" />
 		</Compiler>
+		<Linker>
+			<Add library="glfw3" />
+			<Add library="opengl32" />
+			<Add library="gdi32" />
+			<Add library="winmm" />
+			<Add directory="lib" />
+		</Linker>
+		<Unit filename="include/camera.h" />
+		<Unit filename="include/game_constants.h" />
+		<Unit filename="include/geometry.h" />
+		<Unit filename="include/main_state.h" />
+		<Unit filename="include/rafgl_keys.h" />
+		<Unit filename="res/fonts/chars-large.png" />
+		<Unit filename="res/fonts/chars-small.png" />
+		<Unit filename="res/fonts/chars.png" />
+		<Unit filename="res/shaders/plocica_shader/frag.glsl" />
+		<Unit filename="res/shaders/plocica_shader/vert.glsl" />
+		<Unit filename="res/shaders/post_shader/frag.glsl" />
+		<Unit filename="res/shaders/post_shader/vert.glsl" />
+		<Unit filename="res/shaders/second_shader/frag.glsl" />
+		<Unit filename="res/shaders/second_shader/vert.glsl" />
+		<Unit filename="res/shaders/zrno_shader/frag.glsl" />
+		<Unit filename="res/shaders/zrno_shader/vert.glsl" />
+		<Unit filename="src/camera.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/geometry.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/glad.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/main_state.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

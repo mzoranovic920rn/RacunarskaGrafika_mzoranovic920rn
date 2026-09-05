@@ -10,4 +10,4 @@ void main_state_update(GLFWwindow *window, float delta_time, rafgl_game_data_t *
 void main_state_render(GLFWwindow *window, void *args);
 void main_state_cleanup(GLFWwindow *window, void *args);
 
-#endif // MAIN_STATE_H_INCLUDED
+#endif

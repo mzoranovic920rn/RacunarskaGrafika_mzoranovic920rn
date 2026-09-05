@@ -3,7 +3,7 @@
 
 GLfloat sprat_vertices[SPRAT_BROJEVA];
 
-// Postolje - svetske koordinate, stoji na podu (y od -1.0 do -0.5), kod zadnjeg zida (z oko 3)
+// Postolje
 GLfloat postolje_vertices[] = {
     // gornja strana (y = -0.5)
     -0.6f, -0.5f, 2.4f,  0.4f, 0.4f, 0.45f,

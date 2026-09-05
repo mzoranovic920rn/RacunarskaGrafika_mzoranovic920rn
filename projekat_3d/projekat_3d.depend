@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1788287916 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\glad.c
+1788634063 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\glad.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -99,14 +99,14 @@
 	<math.h>
 	<assert.h>
 
-1788293977 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\main_state.h
+1788634091 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\main_state.h
 	<glad/glad.h>
 	<GLFW/glfw3.h>
 	<rafgl.h>
 
-1788292461 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\game_constants.h
+1788634123 c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\include\game_constants.h
 
-1788621148 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\main_state.c
+1788633806 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\main_state.c
 	<camera.h>
 	<main_state.h>
 	<glad/glad.h>
@@ -119,11 +119,11 @@
 	<math_3d.h>
 	<rafgl.h>
 
-1788617772 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\camera.c
+1788633883 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\camera.c
 	<camera.h>
 	<stdio.h>
 
-1788468867 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\geometry.c
+1788633905 source:c:\rg_3d_projekat\racunarskagrafika_mzoranovic920rn\projekat_3d\src\geometry.c
 	"geometry.h"
 	<math.h>
 

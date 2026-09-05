@@ -12,7 +12,7 @@ vec3_t camera_up = vec3m(0.0f, 1.0f, 0.0f);
 
 void camera_init(void)
 {
-        //trenutno ostaje prazno
+
 }
 
 void camera_update(rafgl_game_data_t *game_data, float delta_time, int raster_width, int raster_height)
@@ -40,7 +40,4 @@ void camera_update(rafgl_game_data_t *game_data, float delta_time, int raster_wi
     projection = m4_perspective(fov, aspect, 0.1f, 100.0f);
     view = m4_look_at(camera_position, camera_target, camera_up);
     view_projection = m4_mul(projection, view);
-
-    //dodato radi provere dal trenutno radi
-    //printf("Kamera pozicija: x=%.2f y=%.2f z=%.2f\n", camera_position.x, camera_position.y, camera_position.z);
 }

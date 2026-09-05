@@ -498,11 +498,6 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
 
 
 
-
-
-
-
-
     //post-procesing
     scena_fbo = rafgl_framebuffer_simple_create(width, height);
 
@@ -545,7 +540,6 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
 
     //za gui
     rafgl_raster_init(&plocica_raster, 420, 110);
-    //rafgl_raster_draw_rectangle(&plocica_raster, 0, 0, 300, 100, rafgl_RGB(235, 228, 210));
     for (int py = 0; py < plocica_raster.height; py++)
     {
         for (int px = 0; px < plocica_raster.width; px++)
@@ -564,8 +558,6 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
     }
 
     rafgl_raster_draw_string(&plocica_raster, "KRISTAL", 15, 10, rafgl_RGB(40, 35, 25), 2);
-   // rafgl_raster_draw_string(&plocica_raster, "animirani eksponat", 15, 55, rafgl_RGB(40, 35, 25), 2);
-    //rafgl_raster_draw_string(&plocica_raster, "K r i s t a l", 15, 15, rafgl_RGB(40, 35, 25), 2);
 
     rafgl_texture_init(&plocica_tekstura);
     rafgl_texture_load_from_raster(&plocica_tekstura, &plocica_raster);
@@ -675,15 +667,6 @@ void main_state_render(GLFWwindow *window, void *args)
 
     glUniform3f(uni_light_dir, -0.5f, -1.0f, -0.3f);
 
-   /* glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);
-    glBindVertexArray(vao);
-    glUniformMatrix4fv(uni_M, 1, GL_FALSE, model.m);
-    glUniformMatrix4fv(uni_VP, 1, GL_FALSE, view_projection.m);
-
-    glDrawArrays(GL_TRIANGLES, 0, 6);
-
-    glBindVertexArray(0);*/
-
 
     //iscrtavanje
     glUniform3f(uni_normal, -1.0f, 0.0f, 0.0f);
@@ -722,22 +705,6 @@ void main_state_render(GLFWwindow *window, void *args)
 
     glUniform1f(uni_zid_sara, 0.0f);
 
-/*
-        glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);
-    glUniformMatrix4fv(uni_M, 1, GL_FALSE, (void*) model.m);
-    glUniformMatrix4fv(uni_VP, 1, GL_FALSE, (void*) view_projection.m);
-    glBindVertexArray(postolje_vao);
-    glDrawArrays(GL_TRIANGLES, 0, 30);
-    glBindVertexArray(0);
-
-    mat4_t kristal_model = m4_translation(vec3m(0.0f, 0.3f, 3.0f));
-    glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);
-    glUniformMatrix4fv(uni_M, 1, GL_FALSE, (void*) kristal_model.m);
-    glUniformMatrix4fv(uni_VP, 1, GL_FALSE, (void*) view_projection.m);
-    glBindVertexArray(kristal_vao);
-    glDrawArrays(GL_TRIANGLES, 0, 24);
-    glBindVertexArray(0);*/
-
 
 
     // postolje - po stranama, radi pravog senčenja
@@ -764,10 +731,10 @@ void main_state_render(GLFWwindow *window, void *args)
 
 
 
-    //mat4_t kristal_model = m4_translation(vec3m(0.0f, 0.3f, 3.0f));
+
 
     mat4_t kristal_rotation = m4_rotation_y(total_time);
-   // mat4_t kristal_translation = m4_translation(vec3m(0.0f, 0.3f, 3.0f));
+
     mat4_t kristal_translation = m4_translation(vec3m(0.0f, 0.4f, 3.0f));
     mat4_t kristal_model = m4_mul(kristal_translation, kristal_rotation);
 
@@ -789,7 +756,7 @@ void main_state_render(GLFWwindow *window, void *args)
     glUniform3f(uni_normal, 0.0f, 0.5f, 0.8f);
     glDrawArrays(GL_TRIANGLES, 9, 3);
 
-       // donja piramida - iste normale kao gornja (simetrican sjaj)
+    // donja piramida - iste normale kao gornja
     glUniform3f(uni_normal, 0.8f, -0.5f, 0.0f);
     glDrawArrays(GL_TRIANGLES, 12, 3);
 
@@ -846,7 +813,6 @@ void main_state_render(GLFWwindow *window, void *args)
     glBindVertexArray(0);
 
     //sara na podu
-
     glUniform1f(uni_pod_sara, 1.0f);
     glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);
     glUniformMatrix4fv(uni_M, 1, GL_FALSE, (void*) model.m);
@@ -866,9 +832,6 @@ void main_state_render(GLFWwindow *window, void *args)
     glDrawArrays(GL_TRIANGLES, 0, 6);
 
     glBindVertexArray(0);
-
-
-
 
 
 
