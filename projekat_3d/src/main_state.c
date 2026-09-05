@@ -62,6 +62,18 @@ static GLfloat prednji_zid_vertices[] =
     -5, -1, -5,     0.7, 0.7, 0.7,
 };
 
+
+
+static GLfloat plocica_vertices[] =
+{
+	-0.45f, -0.63f, 2.39f,       1.0f, 0.0f,
+	 0.45f, -0.63f, 2.39f,       0.0f, 0.0f,
+	 0.45f, -0.87f, 2.39f,       0.0f, 1.0f,
+	-0.45f, -0.63f, 2.39f,       1.0f, 0.0f,
+	 0.45f, -0.87f, 2.39f,       0.0f, 1.0f,
+	-0.45f, -0.87f, 2.39f,       1.0f, 1.0f,
+};
+
 static GLuint vao, vbo, shader_program_id, uni_M, uni_VP;
 static GLuint uni_normal, uni_light_dir;
 static GLuint levi_zid_vao, levi_zid_vbo;
@@ -74,6 +86,14 @@ static GLuint uni_pod_sara;
 GLuint cestica_vao, cestica_vbo;
 GLuint prednji_zid_vao, prednji_zid_vbo;
 GLuint uni_zid_sara;
+GLuint plocica_vao, plocica_vbo;
+
+
+rafgl_raster_t plocica_raster;
+rafgl_texture_t plocica_tekstura;
+
+GLuint plocica_shader_program_id;
+GLint uni_plocica_M, uni_plocica_VP, uni_plocica_tekstura_loc;
 
 //za post-procesing za vinjetu
 rafgl_framebuffer_simple_t scena_fbo;
@@ -253,6 +273,12 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
     glBindVertexArray(0);
 
 
+
+
+
+
+
+
     //post-procesing
     scena_fbo = rafgl_framebuffer_simple_create(width, height);
 
@@ -290,6 +316,60 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
     uni_zrno_scena_tekstura = glGetUniformLocation(zrno_shader_program_id, "uni_scena_tekstura");
     uni_vreme = glGetUniformLocation(zrno_shader_program_id, "uni_vreme");
     uni_jacina_zrna = glGetUniformLocation(zrno_shader_program_id, "uni_jacina_zrna");
+
+
+
+    //za gui
+    rafgl_raster_init(&plocica_raster, 420, 110);
+    //rafgl_raster_draw_rectangle(&plocica_raster, 0, 0, 300, 100, rafgl_RGB(235, 228, 210));
+    for (int py = 0; py < plocica_raster.height; py++)
+    {
+        for (int px = 0; px < plocica_raster.width; px++)
+        {
+            plocica_raster.data[py * plocica_raster.width + px].rgba = rafgl_RGB(235, 228, 210);
+        }
+    }
+
+
+    int ukupno_piksela = plocica_raster.width * plocica_raster.height;
+    for (int i = 0; i < ukupno_piksela / 2; i++)
+    {
+        rafgl_pixel_rgb_t tmp = plocica_raster.data[i];
+        plocica_raster.data[i] = plocica_raster.data[ukupno_piksela - 1 - i];
+        plocica_raster.data[ukupno_piksela - 1 - i] = tmp;
+    }
+
+    rafgl_raster_draw_string(&plocica_raster, "KRISTAL", 15, 10, rafgl_RGB(40, 35, 25), 2);
+   // rafgl_raster_draw_string(&plocica_raster, "animirani eksponat", 15, 55, rafgl_RGB(40, 35, 25), 2);
+    //rafgl_raster_draw_string(&plocica_raster, "K r i s t a l", 15, 15, rafgl_RGB(40, 35, 25), 2);
+
+    rafgl_texture_init(&plocica_tekstura);
+    rafgl_texture_load_from_raster(&plocica_tekstura, &plocica_raster);
+
+    //za plocicu
+    glGenVertexArrays(1, &plocica_vao);
+    glBindVertexArray(plocica_vao);
+
+    glGenBuffers(1, &plocica_vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, plocica_vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(plocica_vertices), plocica_vertices, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(1);
+
+
+
+
+    plocica_shader_program_id = rafgl_program_create_from_name("plocica_shader");
+    uni_plocica_M = glGetUniformLocation(plocica_shader_program_id, "uni_M");
+    uni_plocica_VP = glGetUniformLocation(plocica_shader_program_id, "uni_VP");
+    uni_plocica_tekstura_loc = glGetUniformLocation(plocica_shader_program_id, "uni_plocica_tekstura");
+
+
+
 }
 
 void main_state_update(GLFWwindow *window, float delta_time, rafgl_game_data_t *game_data, void *args)
@@ -503,6 +583,31 @@ void main_state_render(GLFWwindow *window, void *args)
     glBindVertexArray(0);
 
 
+
+
+
+
+
+     glUseProgram(plocica_shader_program_id);
+
+    model = m4_identity();
+    glUniformMatrix4fv(uni_plocica_M, 1, GL_FALSE, model.m);
+    glUniformMatrix4fv(uni_plocica_VP, 1, GL_FALSE, view_projection.m);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, plocica_tekstura.tex_id);
+    glUniform1i(uni_plocica_tekstura_loc, 0);
+
+    glBindVertexArray(plocica_vao);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+
+
+
+
+
+
+
+
     /* stanica 1: vinjeta, iz scena_fbo u fbo_posle_vinjete */
     glBindFramebuffer(GL_FRAMEBUFFER, fbo_posle_vinjete.fbo_id);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -531,6 +636,9 @@ void main_state_render(GLFWwindow *window, void *args)
     glBindVertexArray(kvadrat_vao);
     glDrawArrays(GL_TRIANGLES, 0, 6);
     glBindVertexArray(0);
+
+
+
 }
 
 void main_state_cleanup(GLFWwindow *window, void *args)
