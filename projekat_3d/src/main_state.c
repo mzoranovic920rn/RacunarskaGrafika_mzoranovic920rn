@@ -74,6 +74,222 @@ static GLfloat plocica_vertices[] =
 	-0.45f, -0.87f, 2.39f,       1.0f, 1.0f,
 };
 
+
+static GLfloat valjak_vertices[] =
+{
+    // GORNJI POKLOPAC
+    3.0000f, 0.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    3.3500f, 0.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    3.2475f, 0.0000f, -1.5525f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    3.2475f, 0.0000f, -1.5525f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -1.4500f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -1.4500f,  0.15f, 0.65f, 0.55f,
+    2.7525f, 0.0000f, -1.5525f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    2.7525f, 0.0000f, -1.5525f,  0.15f, 0.65f, 0.55f,
+    2.6500f, 0.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    2.6500f, 0.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    2.7525f, 0.0000f, -2.0475f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    2.7525f, 0.0000f, -2.0475f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -2.1500f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -2.1500f,  0.15f, 0.65f, 0.55f,
+    3.2475f, 0.0000f, -2.0475f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    3.2475f, 0.0000f, -2.0475f,  0.15f, 0.65f, 0.55f,
+    3.3500f, 0.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+
+    // BOCNE STRANE
+    3.3500f, -1.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    3.2475f, -1.0000f, -1.5525f,  0.15f, 0.65f, 0.55f,
+    3.2475f, 0.0000f, -1.5525f,   0.15f, 0.65f, 0.55f,
+    3.3500f, -1.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    3.2475f, 0.0000f, -1.5525f,   0.15f, 0.65f, 0.55f,
+    3.3500f, 0.0000f, -1.8000f,   0.15f, 0.65f, 0.55f,
+
+    3.2475f, -1.0000f, -1.5525f,  0.15f, 0.65f, 0.55f,
+    3.0000f, -1.0000f, -1.4500f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -1.4500f,   0.15f, 0.65f, 0.55f,
+    3.2475f, -1.0000f, -1.5525f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -1.4500f,   0.15f, 0.65f, 0.55f,
+    3.2475f, 0.0000f, -1.5525f,   0.15f, 0.65f, 0.55f,
+
+    3.0000f, -1.0000f, -1.4500f,  0.15f, 0.65f, 0.55f,
+    2.7525f, -1.0000f, -1.5525f,  0.15f, 0.65f, 0.55f,
+    2.7525f, 0.0000f, -1.5525f,   0.15f, 0.65f, 0.55f,
+    3.0000f, -1.0000f, -1.4500f,  0.15f, 0.65f, 0.55f,
+    2.7525f, 0.0000f, -1.5525f,   0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -1.4500f,   0.15f, 0.65f, 0.55f,
+
+    2.7525f, -1.0000f, -1.5525f,  0.15f, 0.65f, 0.55f,
+    2.6500f, -1.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    2.6500f, 0.0000f, -1.8000f,   0.15f, 0.65f, 0.55f,
+    2.7525f, -1.0000f, -1.5525f,  0.15f, 0.65f, 0.55f,
+    2.6500f, 0.0000f, -1.8000f,   0.15f, 0.65f, 0.55f,
+    2.7525f, 0.0000f, -1.5525f,   0.15f, 0.65f, 0.55f,
+
+    2.6500f, -1.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    2.7525f, -1.0000f, -2.0475f,  0.15f, 0.65f, 0.55f,
+    2.7525f, 0.0000f, -2.0475f,   0.15f, 0.65f, 0.55f,
+    2.6500f, -1.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    2.7525f, 0.0000f, -2.0475f,   0.15f, 0.65f, 0.55f,
+    2.6500f, 0.0000f, -1.8000f,   0.15f, 0.65f, 0.55f,
+
+    2.7525f, -1.0000f, -2.0475f,  0.15f, 0.65f, 0.55f,
+    3.0000f, -1.0000f, -2.1500f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -2.1500f,   0.15f, 0.65f, 0.55f,
+    2.7525f, -1.0000f, -2.0475f,  0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -2.1500f,   0.15f, 0.65f, 0.55f,
+    2.7525f, 0.0000f, -2.0475f,   0.15f, 0.65f, 0.55f,
+
+    3.0000f, -1.0000f, -2.1500f,  0.15f, 0.65f, 0.55f,
+    3.2475f, -1.0000f, -2.0475f,  0.15f, 0.65f, 0.55f,
+    3.2475f, 0.0000f, -2.0475f,   0.15f, 0.65f, 0.55f,
+    3.0000f, -1.0000f, -2.1500f,  0.15f, 0.65f, 0.55f,
+    3.2475f, 0.0000f, -2.0475f,   0.15f, 0.65f, 0.55f,
+    3.0000f, 0.0000f, -2.1500f,   0.15f, 0.65f, 0.55f,
+
+    3.2475f, -1.0000f, -2.0475f,  0.15f, 0.65f, 0.55f,
+    3.3500f, -1.0000f, -1.8000f,  0.15f, 0.65f, 0.55f,
+    3.3500f, 0.0000f, -1.8000f,   0.15f, 0.65f, 0.55f,
+    3.2475f, -1.0000f, -2.0475f,  0.15f, 0.65f, 0.55f,
+    3.3500f, 0.0000f, -1.8000f,   0.15f, 0.65f, 0.55f,
+    3.2475f, 0.0000f, -2.0475f,   0.15f, 0.65f, 0.55f,
+};
+
+static GLfloat kupa_vertices[] =
+{
+    3.2500f, -1.0000f, -0.5000f,  0.85f, 0.25f, 0.15f,
+    3.0596f, -1.0000f, -0.0404f,  0.85f, 0.25f, 0.15f,
+    2.6000f, 0.7000f, -0.5000f,   0.85f, 0.25f, 0.15f,
+    3.0596f, -1.0000f, -0.0404f,  0.85f, 0.25f, 0.15f,
+    2.6000f, -1.0000f, 0.1500f,   0.85f, 0.25f, 0.15f,
+    2.6000f, 0.7000f, -0.5000f,   0.85f, 0.25f, 0.15f,
+    2.6000f, -1.0000f, 0.1500f,   0.85f, 0.25f, 0.15f,
+    2.1404f, -1.0000f, -0.0404f,  0.85f, 0.25f, 0.15f,
+    2.6000f, 0.7000f, -0.5000f,   0.85f, 0.25f, 0.15f,
+    2.1404f, -1.0000f, -0.0404f,  0.85f, 0.25f, 0.15f,
+    1.9500f, -1.0000f, -0.5000f,  0.85f, 0.25f, 0.15f,
+    2.6000f, 0.7000f, -0.5000f,   0.85f, 0.25f, 0.15f,
+    1.9500f, -1.0000f, -0.5000f,  0.85f, 0.25f, 0.15f,
+    2.1404f, -1.0000f, -0.9596f,  0.85f, 0.25f, 0.15f,
+    2.6000f, 0.7000f, -0.5000f,   0.85f, 0.25f, 0.15f,
+    2.1404f, -1.0000f, -0.9596f,  0.85f, 0.25f, 0.15f,
+    2.6000f, -1.0000f, -1.1500f,  0.85f, 0.25f, 0.15f,
+    2.6000f, 0.7000f, -0.5000f,   0.85f, 0.25f, 0.15f,
+    2.6000f, -1.0000f, -1.1500f,  0.85f, 0.25f, 0.15f,
+    3.0596f, -1.0000f, -0.9596f,  0.85f, 0.25f, 0.15f,
+    2.6000f, 0.7000f, -0.5000f,   0.85f, 0.25f, 0.15f,
+    3.0596f, -1.0000f, -0.9596f,  0.85f, 0.25f, 0.15f,
+    3.2500f, -1.0000f, -0.5000f,  0.85f, 0.25f, 0.15f,
+    2.6000f, 0.7000f, -0.5000f,   0.85f, 0.25f, 0.15f,
+};
+
+static GLfloat kutija1_vertices[] =
+{
+    1.5f, -0.4f, 1.1f,  0.8f, 0.1f, 0.35f,
+    2.3f, -0.4f, 1.1f,  0.8f, 0.1f, 0.35f,
+    2.3f, -0.4f, 1.9f,  0.8f, 0.1f, 0.35f,
+    1.5f, -0.4f, 1.1f,  0.8f, 0.1f, 0.35f,
+    2.3f, -0.4f, 1.9f,  0.8f, 0.1f, 0.35f,
+    1.5f, -0.4f, 1.9f,  0.8f, 0.1f, 0.35f,
+    1.5f, -1.0f, 1.1f,  0.8f, 0.1f, 0.35f,
+    2.3f, -1.0f, 1.1f,  0.8f, 0.1f, 0.35f,
+    2.3f, -0.4f, 1.1f,  0.8f, 0.1f, 0.35f,
+    1.5f, -1.0f, 1.1f,  0.8f, 0.1f, 0.35f,
+    2.3f, -0.4f, 1.1f,  0.8f, 0.1f, 0.35f,
+    1.5f, -0.4f, 1.1f,  0.8f, 0.1f, 0.35f,
+    1.5f, -1.0f, 1.9f,  0.8f, 0.1f, 0.35f,
+    2.3f, -1.0f, 1.9f,  0.8f, 0.1f, 0.35f,
+    2.3f, -0.4f, 1.9f,  0.8f, 0.1f, 0.35f,
+    1.5f, -1.0f, 1.9f,  0.8f, 0.1f, 0.35f,
+    2.3f, -0.4f, 1.9f,  0.8f, 0.1f, 0.35f,
+    1.5f, -0.4f, 1.9f,  0.8f, 0.1f, 0.35f,
+    1.5f, -1.0f, 1.1f,  0.8f, 0.1f, 0.35f,
+    1.5f, -1.0f, 1.9f,  0.8f, 0.1f, 0.35f,
+    1.5f, -0.4f, 1.9f,  0.8f, 0.1f, 0.35f,
+    1.5f, -1.0f, 1.1f,  0.8f, 0.1f, 0.35f,
+    1.5f, -0.4f, 1.9f,  0.8f, 0.1f, 0.35f,
+    1.5f, -0.4f, 1.1f,  0.8f, 0.1f, 0.35f,
+    2.3f, -1.0f, 1.1f,  0.8f, 0.1f, 0.35f,
+    2.3f, -1.0f, 1.9f,  0.8f, 0.1f, 0.35f,
+    2.3f, -0.4f, 1.9f,  0.8f, 0.1f, 0.35f,
+    2.3f, -1.0f, 1.1f,  0.8f, 0.1f, 0.35f,
+    2.3f, -0.4f, 1.9f,  0.8f, 0.1f, 0.35f,
+    2.3f, -0.4f, 1.1f,  0.8f, 0.1f, 0.35f,
+};
+static GLfloat kutija2_vertices[] =
+{
+    1.8f, 0.0f, 1.15f,  0.95f, 0.5f, 0.1f,
+    2.3f, 0.0f, 1.15f,  0.95f, 0.5f, 0.1f,
+    2.3f, 0.0f, 1.65f,  0.95f, 0.5f, 0.1f,
+    1.8f, 0.0f, 1.15f,  0.95f, 0.5f, 0.1f,
+    2.3f, 0.0f, 1.65f,  0.95f, 0.5f, 0.1f,
+    1.8f, 0.0f, 1.65f,  0.95f, 0.5f, 0.1f,
+    1.8f, -0.4f, 1.15f,  0.95f, 0.5f, 0.1f,
+    2.3f, -0.4f, 1.15f,  0.95f, 0.5f, 0.1f,
+    2.3f, 0.0f, 1.15f,  0.95f, 0.5f, 0.1f,
+    1.8f, -0.4f, 1.15f,  0.95f, 0.5f, 0.1f,
+    2.3f, 0.0f, 1.15f,  0.95f, 0.5f, 0.1f,
+    1.8f, 0.0f, 1.15f,  0.95f, 0.5f, 0.1f,
+    1.8f, -0.4f, 1.65f,  0.95f, 0.5f, 0.1f,
+    2.3f, -0.4f, 1.65f,  0.95f, 0.5f, 0.1f,
+    2.3f, 0.0f, 1.65f,  0.95f, 0.5f, 0.1f,
+    1.8f, -0.4f, 1.65f,  0.95f, 0.5f, 0.1f,
+    2.3f, 0.0f, 1.65f,  0.95f, 0.5f, 0.1f,
+    1.8f, 0.0f, 1.65f,  0.95f, 0.5f, 0.1f,
+    1.8f, -0.4f, 1.15f,  0.95f, 0.5f, 0.1f,
+    1.8f, -0.4f, 1.65f,  0.95f, 0.5f, 0.1f,
+    1.8f, 0.0f, 1.65f,  0.95f, 0.5f, 0.1f,
+    1.8f, -0.4f, 1.15f,  0.95f, 0.5f, 0.1f,
+    1.8f, 0.0f, 1.65f,  0.95f, 0.5f, 0.1f,
+    1.8f, 0.0f, 1.15f,  0.95f, 0.5f, 0.1f,
+    2.3f, -0.4f, 1.15f,  0.95f, 0.5f, 0.1f,
+    2.3f, -0.4f, 1.65f,  0.95f, 0.5f, 0.1f,
+    2.3f, 0.0f, 1.65f,  0.95f, 0.5f, 0.1f,
+    2.3f, -0.4f, 1.15f,  0.95f, 0.5f, 0.1f,
+    2.3f, 0.0f, 1.65f,  0.95f, 0.5f, 0.1f,
+    2.3f, 0.0f, 1.15f,  0.95f, 0.5f, 0.1f,
+};
+static GLfloat kutija3_vertices[] =
+{
+    2.0f, 0.25f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.25f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.25f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.25f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.25f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.25f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.0f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.0f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.25f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.0f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.25f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.25f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.0f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.0f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.25f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.0f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.25f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.25f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.0f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.0f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.25f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.0f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.25f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.0f, 0.25f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.0f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.0f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.25f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.0f, 1.15f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.25f, 1.45f,  0.9f, 0.75f, 0.1f,
+    2.3f, 0.25f, 1.15f,  0.9f, 0.75f, 0.1f,
+};
+
+
 static GLuint vao, vbo, shader_program_id, uni_M, uni_VP;
 static GLuint uni_normal, uni_light_dir;
 static GLuint levi_zid_vao, levi_zid_vbo;
@@ -88,6 +304,14 @@ GLuint prednji_zid_vao, prednji_zid_vbo;
 GLuint uni_zid_sara;
 GLuint plocica_vao, plocica_vbo;
 
+
+GLuint kutija1_vao, kutija1_vbo;
+GLuint kutija2_vao, kutija2_vbo;
+
+
+GLuint kutija3_vao, kutija3_vbo;
+GLuint kupa_vao, kupa_vbo;
+GLuint valjak_vao, valjak_vbo;
 
 rafgl_raster_t plocica_raster;
 rafgl_texture_t plocica_tekstura;
@@ -369,7 +593,68 @@ void main_state_init(GLFWwindow *window, void *args, int width, int height)
     uni_plocica_tekstura_loc = glGetUniformLocation(plocica_shader_program_id, "uni_plocica_tekstura");
 
 
+    //za kutiju1
+    glGenVertexArrays(1, &kutija1_vao);
+    glGenBuffers(1, &kutija1_vbo);
+    glBindVertexArray(kutija1_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, kutija1_vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(kutija1_vertices), kutija1_vertices, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), 0);
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), 3 * sizeof(GLfloat));
+    glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+    //za kutiju2
+    glGenVertexArrays(1, &kutija2_vao);
+    glGenBuffers(1, &kutija2_vbo);
+    glBindVertexArray(kutija2_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, kutija2_vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(kutija2_vertices), kutija2_vertices, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), 0);
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), 3 * sizeof(GLfloat));
+    glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+
+
+    glGenVertexArrays(1, &kutija3_vao);
+    glGenBuffers(1, &kutija3_vbo);
+    glBindVertexArray(kutija3_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, kutija3_vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(kutija3_vertices), kutija3_vertices, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glBindVertexArray(0);
+
+
+    glGenVertexArrays(1, &kupa_vao);
+    glGenBuffers(1, &kupa_vbo);
+    glBindVertexArray(kupa_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, kupa_vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(kupa_vertices), kupa_vertices, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glBindVertexArray(0);
+
+
+    glGenVertexArrays(1, &valjak_vao);
+    glGenBuffers(1, &valjak_vbo);
+    glBindVertexArray(valjak_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, valjak_vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(valjak_vertices), valjak_vertices, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glBindVertexArray(0);
 }
 
 void main_state_update(GLFWwindow *window, float delta_time, rafgl_game_data_t *game_data, void *args)
@@ -603,9 +888,96 @@ void main_state_render(GLFWwindow *window, void *args)
 
 
 
+    glUseProgram(shader_program_id);
+
+    //kutija1 (donja, veca)
+    glUniformMatrix4fv(uni_M, 1, GL_FALSE, (void*) model.m);
+    glUniformMatrix4fv(uni_VP, 1, GL_FALSE, (void*) view_projection.m);
+    glBindVertexArray(kutija1_vao);
+    glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);   // gornja strana
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    glUniform3f(uni_normal, 0.0f, 0.0f, -1.0f);  // prednja strana
+    glDrawArrays(GL_TRIANGLES, 6, 6);
+    glUniform3f(uni_normal, 0.0f, 0.0f, 1.0f);   // zadnja strana
+    glDrawArrays(GL_TRIANGLES, 12, 6);
+    glUniform3f(uni_normal, -1.0f, 0.0f, 0.0f);  // leva strana
+    glDrawArrays(GL_TRIANGLES, 18, 6);
+    glUniform3f(uni_normal, 1.0f, 0.0f, 0.0f);   // desna strana
+    glDrawArrays(GL_TRIANGLES, 24, 6);
+    glBindVertexArray(0);
+
+    //kutija2 (gornja, manja)
+    glBindVertexArray(kutija2_vao);
+    glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    glUniform3f(uni_normal, 0.0f, 0.0f, -1.0f);
+    glDrawArrays(GL_TRIANGLES, 6, 6);
+    glUniform3f(uni_normal, 0.0f, 0.0f, 1.0f);
+    glDrawArrays(GL_TRIANGLES, 12, 6);
+    glUniform3f(uni_normal, -1.0f, 0.0f, 0.0f);
+    glDrawArrays(GL_TRIANGLES, 18, 6);
+    glUniform3f(uni_normal, 1.0f, 0.0f, 0.0f);
+    glDrawArrays(GL_TRIANGLES, 24, 6);
+    glBindVertexArray(0);
 
 
 
+
+    //kutija3 (najgornja, najmanja)
+    glBindVertexArray(kutija3_vao);
+    glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    glUniform3f(uni_normal, 0.0f, 0.0f, -1.0f);
+    glDrawArrays(GL_TRIANGLES, 6, 6);
+    glUniform3f(uni_normal, 0.0f, 0.0f, 1.0f);
+    glDrawArrays(GL_TRIANGLES, 12, 6);
+    glUniform3f(uni_normal, -1.0f, 0.0f, 0.0f);
+    glDrawArrays(GL_TRIANGLES, 18, 6);
+    glUniform3f(uni_normal, 1.0f, 0.0f, 0.0f);
+    glDrawArrays(GL_TRIANGLES, 24, 6);
+    glBindVertexArray(0);
+
+    //kupa
+    glBindVertexArray(kupa_vao);
+    glUniform3f(uni_normal, 0.8758f, 0.3185f, 0.3628f);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glUniform3f(uni_normal, 0.3628f, 0.3185f, 0.8758f);
+    glDrawArrays(GL_TRIANGLES, 3, 3);
+    glUniform3f(uni_normal, -0.3628f, 0.3185f, 0.8758f);
+    glDrawArrays(GL_TRIANGLES, 6, 3);
+    glUniform3f(uni_normal, -0.8758f, 0.3185f, 0.3628f);
+    glDrawArrays(GL_TRIANGLES, 9, 3);
+    glUniform3f(uni_normal, -0.8758f, 0.3185f, -0.3628f);
+    glDrawArrays(GL_TRIANGLES, 12, 3);
+    glUniform3f(uni_normal, -0.3628f, 0.3185f, -0.8758f);
+    glDrawArrays(GL_TRIANGLES, 15, 3);
+    glUniform3f(uni_normal, 0.3628f, 0.3185f, -0.8758f);
+    glDrawArrays(GL_TRIANGLES, 18, 3);
+    glUniform3f(uni_normal, 0.8758f, 0.3185f, -0.3628f);
+    glDrawArrays(GL_TRIANGLES, 21, 3);
+    glBindVertexArray(0);
+
+    //valjak
+    glBindVertexArray(valjak_vao);
+    glUniform3f(uni_normal, 0.0f, 1.0f, 0.0f);
+    glDrawArrays(GL_TRIANGLES, 0, 24);
+    glUniform3f(uni_normal, 0.9239f, 0.0f, 0.3827f);
+    glDrawArrays(GL_TRIANGLES, 24, 6);
+    glUniform3f(uni_normal, 0.3827f, 0.0f, 0.9239f);
+    glDrawArrays(GL_TRIANGLES, 30, 6);
+    glUniform3f(uni_normal, -0.3827f, 0.0f, 0.9239f);
+    glDrawArrays(GL_TRIANGLES, 36, 6);
+    glUniform3f(uni_normal, -0.9239f, 0.0f, 0.3827f);
+    glDrawArrays(GL_TRIANGLES, 42, 6);
+    glUniform3f(uni_normal, -0.9239f, 0.0f, -0.3827f);
+    glDrawArrays(GL_TRIANGLES, 48, 6);
+    glUniform3f(uni_normal, -0.3827f, 0.0f, -0.9239f);
+    glDrawArrays(GL_TRIANGLES, 54, 6);
+    glUniform3f(uni_normal, 0.3827f, 0.0f, -0.9239f);
+    glDrawArrays(GL_TRIANGLES, 60, 6);
+    glUniform3f(uni_normal, 0.9239f, 0.0f, -0.3827f);
+    glDrawArrays(GL_TRIANGLES, 66, 6);
+    glBindVertexArray(0);
 
 
     /* stanica 1: vinjeta, iz scena_fbo u fbo_posle_vinjete */
